@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="application-dev.properties"/>
+    <context id="MySql" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="me.ixk.xkblog.models" targetProject="src/main/java" />
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+        <javaClientGenerator targetPackage="me.ixk.xkblog.mapper" targetProject="src/main/java" type="ANNOTATEDMAPPER" />
+        <table tableName="categories" />
+        <table tableName="comments" />
+        <table tableName="links" />
+        <table tableName="media" />
+        <table tableName="options" />
+        <table tableName="posts" />
+        <table tableName="posts_meta" />
+        <table tableName="tags" />
+        <table tableName="users" />
+        <table tableName="users_meta" />
+        <table tableName="persistent_logins" />
+    </context>
+</generatorConfiguration>
